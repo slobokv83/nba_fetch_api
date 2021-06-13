@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Fetch API Sandbox</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <style>
+        table tr{
+            cursor: pointer; transition: all .25s ease-in-out;
+        }
+        table tr:hover{background-color: #ddd;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-4 mb-4">
+            <b>NBA Statistics</b>
+            <img src="logo/logo.png" alt="" class="atlanta-img" />
+        </h1>
+        <div class="flex">
+            <button class="btn btn-primary mr-2" id="getPlayers">Search Players</button>
+            <button class="btn btn-primary mr-2" id="getTeams">Search Teams</button>
+        </div>
+        <div class="inputs">
+            <div>
+                <form id="playerinput">
+                    <input type="text" id="nameinput" class="mt-4" placeholder="Type player name..." />
+                </form>
+            </div>
+            <div id="perpagecontainer">
+                <label for="perpage" id="perpagelabel">Players per page:</label>
+                <select name="perpagenumber" id="perpagenumber">
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="75">75</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="teams">
+
+        </div>
+        <div id="output">
+            
+            <table id="table" class="table table-stripped">
+                <thead>
+                    <h2 id="players" class="mt-4 mb-4">
+
+                    </h2>
+                    <tr>
+                        <th id="tablehead">ID</th>
+                        <th id="tablehead">Name</th>
+                        <th id="tablehead">Position</th>
+                        <th id="tablehead">Team</th>
+                        <th id="tablehead">Conference</th>
+                        <th id="tablehead">Division</th>
+                    </tr>
+                </thead>
+                <tbody id="data">
+
+                </tbody>
+            </table>
+        </div>        
+    </div>
+    <div class="pagenumbers" id="pagination"></div>
+    
+    <div class="popup">
+        <!-- <form  id="form-container" class="form-container"> -->
+        <div class="blocker" onclick="hidePopup()"></div>
+        <!-- <div class="modal-header"> -->
+            
+            
+            
+            <!-- <i class="fas fa-window-close" onclick="closePopup()"></i> -->
+
+            <!-- <button type="button" class="btn cancel" onclick="closePopup()">X</button> -->
+        <!-- </div> -->
+        <div class="modal-body">
+            <ul class="headerList">
+                <li class="list1">
+                    <div id="playername" class="playername"><b>Player Stats</b></div>
+                </li>
+                <li class="list2">
+                    <div class="img-close">
+                        <i class="fas fa-window-close" onclick="hidePopup()"></i>
+                    </div>
+                </li>
+            </ul>
+            <table id="tablePopup" class="tablePopup table-stripped">
+                <thead>
+                    <tr id="trpopuphead">
+                        <th id="thead">MIN</th>
+                        <th id="thead">FG%</th>
+                        <th id="thead">FT%</th>
+                        <th id="thead">3PTM</th>
+                        <th id="thead">PTS</th>
+                        <th id="thead">REB</th>
+                        <th id="thead">AST</th>
+                        <th id="thead">ST</th>
+                        <th id="thead">BLK</th>
+                        <th id="thead">TO</th>
+                    </tr>
+                </thead>
+                <tbody id="dataPopup">
+
+                </tbody>
+            </table> 
+        </div>    
+        <!-- </div>     -->
+        <!-- </form> -->
+    </div>
+
+
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
